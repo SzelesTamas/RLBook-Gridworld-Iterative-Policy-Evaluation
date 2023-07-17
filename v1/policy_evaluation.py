@@ -15,13 +15,14 @@ def iteration(policy, currentValue: np.array, env: Environment) -> tuple:
     """
     newValue = np.zeros(env.stateCount)
     for state in range(env.stateCount):
-        if(state in env.terminalStates):
+        if state in env.terminalStates:
             continue
         for action in range(len(env.actions)):
             # get the next state and reward
             nextState, reward, _ = env.makeMove(state, action)
             # calculate the new value
-            newValue[state] += policy(state, action) * (reward + currentValue[nextState])
-            
-    
+            newValue[state] += policy(state, action) * (
+                reward + currentValue[nextState]
+            )
+
     return newValue, np.max(np.abs(newValue - currentValue))
