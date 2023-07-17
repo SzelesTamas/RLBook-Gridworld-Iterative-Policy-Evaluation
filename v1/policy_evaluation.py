@@ -3,7 +3,7 @@ import numpy as np
 from environment import Environment
 
 
-def iteration(policy: function, currentValue: np.array, env: Environment) -> tuple:
+def iteration(policy, currentValue: np.array, env: Environment) -> tuple:
     """This function performs one iteration of the policy evaluation algorithm.
 
     Args:

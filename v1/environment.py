@@ -13,7 +13,7 @@ class Environment:
         """
         self.size = size
         self.stateCount = size * size
-        self.terminalStates = {terminalStates}
+        self.terminalStates = {*terminalStates}
         # The actions are represented as follows:
         # 0: up
         # 1: right
@@ -70,7 +70,7 @@ class Environment:
         if(self.isInside(endCoordinates)):
             endState = self.coordinatesToIndex(endCoordinates)
             if(endState in self.terminalStates):
-                return (endState, 0, True)
+                return (endState, -1, True)
             return (endState, -1, False)
         else:
             return (startState, -1, False)
