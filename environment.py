@@ -1,1 +1,0 @@
-"""In this file I define the GridWorld environment."""
